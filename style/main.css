@@ -8,6 +8,7 @@
 
   --common-space : 2rem;
   --common-less-space: 1rem;
+  --common-lesser-space: 0.8rem;
 }
 
 /* UTILITY CLASSES */
@@ -26,6 +27,12 @@
 
 html {
   font-size: 62.5%;
+}
+
+@media screen and (max-width:1280px) {
+  html{
+    font-size: 50%;
+  }
 }
 
 body {
