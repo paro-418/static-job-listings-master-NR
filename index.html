@@ -17,7 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style/style.css" />
     <title>Frontend Mentor | Job Listings</title>
   </head>
   <body>
@@ -25,9 +25,28 @@
       <img src="images/bg-header-desktop.svg" alt="header-decoration-svg" />
     </div>
     <div class="container">
-      <div class="search-bar"></div>
+      <div class="search-bar ">
+        <span class="searches"
+          ><p>html</p>
+          <span class="remove-btn">
+            <img
+              src="images/icon-remove.svg"
+              alt="remove icon"
+              class="remove-icon" /></span
+        ></span>
+        <span class="searches"
+          ><p>html</p>
+          <span class="remove-btn">
+            <img
+              src="images/icon-remove.svg"
+              alt="remove icon"
+              class="remove-icon" /></span
+        ></span>
+
+        <button class="clear">Clear</button>
+      </div>
       <div class="job-list">
-        <div class="job1">
+        <div class="job1 jobs">
           <div class="logo">
             <img src="images/photosnap.svg" alt="company logo" />
           </div>
@@ -39,11 +58,41 @@
                 <span class="feature">featured</span>
               </div>
               <div class="second-row">
-                <h4 class="postion">Senior Frontend Developer</h4>
+                <a href="#" class="position">senior frontend developer</a>
               </div>
               <div class="third-row">
-                <span class="time-posted">1d ago</span>
-                <span class="job-type">Full Time</span>
+                <span class="time-posted">1d ago</span> &#x2022;
+                <span class="job-type">Full Time</span> &#x2022;
+                <span class="where">USA only</span>
+              </div>
+            </div>
+
+            <div class="right-info">
+              <span class="role tags-design">Fullstack</span>
+              <span class="level">Midweight</span>
+              <span class="languages">javascript</span>
+              <span class="languages">HTML</span>
+              <span class="languages">CSS</span>
+            </div>
+          </div>
+        </div>
+        <div class="job1 jobs">
+          <div class="logo">
+            <img src="images/photosnap.svg" alt="company logo" />
+          </div>
+          <div class="all-info">
+            <div class="left-info">
+              <div class="first-row">
+                <span class="company-name">photosnap</span>
+                <span class="new">new!</span>
+                <span class="feature">featured</span>
+              </div>
+              <div class="second-row">
+                <a href="#" class="position">Lorem ipsum dolor sit amet.</a>
+              </div>
+              <div class="third-row">
+                <span class="time-posted">1d ago</span> &#x2022;
+                <span class="job-type">Full Time</span> &#x2022;
                 <span class="where">USA only</span>
               </div>
             </div>

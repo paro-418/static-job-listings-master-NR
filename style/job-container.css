@@ -1,0 +1,72 @@
+
+/* CONTAINER HOLDING JOBS */
+
+.container {
+  border: 2px solid black;
+  height: fit-content;
+  width: 85%;
+  margin: 8rem auto;
+  position: relative;
+}
+
+.search-bar {
+  /* border: 2px solid blue; */
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 6.5rem;
+  top: 0;
+  background-color: #fff;
+  transform: translateY(-175%);
+  border-radius: 0.5rem;
+  padding: 0 var(--common-space);
+}
+
+.searches{
+  overflow: hidden;
+  height: 50%;
+  display: flex;
+  background-color: var(--span-bg-color);
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.4rem;
+  color: var(--primary-color);
+  margin-right: var(--common-space);
+}
+
+.clear{
+  background-color: transparent;
+  border: none;
+  color: var(--dark-greyish-cyan);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.clear:hover, .clear:active{
+  color: var(--primary-color);
+  text-decoration:underline ;
+}
+
+.remove-btn{
+  background-color: var(--primary-color);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  cursor: pointer;
+}
+.remove-btn:hover{
+  background-color: #000;
+}
+
+.searches p{
+  font-weight: 600;
+  margin: 0 var(--common-less-space);
+}
+
+/* container of all listed jobs */
