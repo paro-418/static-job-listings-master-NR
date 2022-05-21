@@ -2,6 +2,7 @@
   --primary-color: #5ba4a4;
   --secondary-color : rgba(0, 0, 0, 0.7);
   --dark-greyish-cyan:#7b8e8e;
+  --dark-greyish-cyan-shadow:#7b8e8e6b;
   --span-bg-color: #eef6f6;
 
   /* common-padding & margin */
@@ -9,6 +10,8 @@
   --common-space : 2rem;
   --common-less-space: 1rem;
   --common-lesser-space: 0.8rem;
+  --common-least-space: 0.5rem;
+  --container-mobile-margin-top: 7rem;
 }
 
 /* UTILITY CLASSES */
@@ -35,6 +38,12 @@ html {
   }
 }
 
+@media screen and (max-width : 400px) {
+  html{
+    font-size: 60%;
+  }
+}
+
 body {
   font-family: "League Spartan", sans-serif;
   background-color: #effafa;
@@ -45,7 +54,6 @@ body {
 .header {
   width: 100vw;
   height: fit-content;
-  /* border: 3px solid red; */
   background-color: var(--primary-color);
 }
 

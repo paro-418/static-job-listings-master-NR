@@ -23,9 +23,39 @@
   <body>
     <div class="header">
       <img src="images/bg-header-desktop.svg" alt="header-decoration-svg" />
-    </div>
-    <div class="container">
-      <div class="search-bar ">
+            <div class="search-bar " id="search-bar">
+        <span class="searches"
+          ><p>html</p>
+          <span class="remove-btn">
+            <img
+              src="images/icon-remove.svg"
+              alt="remove icon"
+              class="remove-icon" /></span
+        ></span>
+        <span class="searches"
+          ><p>html</p>
+          <span class="remove-btn">
+            <img
+              src="images/icon-remove.svg"
+              alt="remove icon"
+              class="remove-icon" /></span
+        ></span>
+        <span class="searches"
+          ><p>html</p>
+          <span class="remove-btn">
+            <img
+              src="images/icon-remove.svg"
+              alt="remove icon"
+              class="remove-icon" /></span
+        ></span>
+        <span class="searches"
+          ><p>html</p>
+          <span class="remove-btn">
+            <img
+              src="images/icon-remove.svg"
+              alt="remove icon"
+              class="remove-icon" /></span
+        ></span>
         <span class="searches"
           ><p>html</p>
           <span class="remove-btn">
@@ -45,6 +75,8 @@
 
         <button class="clear">Clear</button>
       </div>
+    </div>
+    <div class="container">
       <div class="job-list">
         <div class="job1 jobs">
           <div class="logo">
@@ -52,15 +84,15 @@
           </div>
           <div class="all-info">
             <div class="left-info">
-              <div class="first-row">
+              <div class="first-row row">
                 <span class="company-name">photosnap</span>
                 <span class="new">new!</span>
                 <span class="feature">featured</span>
               </div>
-              <div class="second-row">
+              <div class="second-row row">
                 <a href="#" class="position">senior frontend developer</a>
               </div>
-              <div class="third-row">
+              <div class="third-row row">
                 <span class="time-posted">1d ago</span> &#x2022;
                 <span class="job-type">Full Time</span> &#x2022;
                 <span class="where">USA only</span>
@@ -82,15 +114,15 @@
           </div>
           <div class="all-info">
             <div class="left-info">
-              <div class="first-row">
+              <div class="first-row row">
                 <span class="company-name">photosnap</span>
                 <span class="new">new!</span>
                 <span class="feature">featured</span>
               </div>
-              <div class="second-row">
-                <a href="#" class="position">Lorem ipsum dolor sit amet.</a>
+              <div class="second-row row">
+                <a href="#" class="position">senior frontend developer</a>
               </div>
-              <div class="third-row">
+              <div class="third-row row">
                 <span class="time-posted">1d ago</span> &#x2022;
                 <span class="job-type">Full Time</span> &#x2022;
                 <span class="where">USA only</span>
@@ -108,5 +140,13 @@
         </div>
       </div>
     </div>
+
+    <script>
+      let searchBar = document.querySelector('#search-bar');
+      console.log(searchBar);
+      let searchBarHeight = window.getComputedStyle(searchBar).height;
+      let previousHeight = searchBarHeight;
+      
+    </script>
   </body>
 </html>

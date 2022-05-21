@@ -1,30 +1,36 @@
-
 /* CONTAINER HOLDING JOBS */
 
 .container {
-  border: 2px solid black;
   height: fit-content;
   width: 85%;
-  margin: 8rem auto;
+  margin: 0 auto;
+  margin-top: 8rem;
   position: relative;
 }
 
-.search-bar {
-  /* border: 2px solid blue; */
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-  position: absolute;
-  width: 100%;
-  height: 6.5rem;
-  top: 0;
-  background-color: #fff;
-  transform: translateY(-175%);
-  border-radius: 0.5rem;
-  padding: 0 var(--common-space);
+@media screen and (max-width: 400px) {
+  .container {
+    width: 95%;
+    margin-top: var(--container-mobile-margin-top);
+  }
 }
 
-.searches{
+.search-bar {
+  font-size: 2rem;
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  transform: translateY(50%);
+  padding: var(--common-space);
+  box-shadow: 0rem 1rem 2rem var(--dark-greyish-cyan-shadow);
+  position: relative;
+}
+
+.searches {
   overflow: hidden;
   height: 50%;
   display: flex;
@@ -36,7 +42,13 @@
   margin-right: var(--common-space);
 }
 
-.clear{
+@media screen and (max-width: 400px){
+  .search-bar{
+    padding: var(--common-less-space);
+  }
+}
+
+.clear {
   background-color: transparent;
   border: none;
   color: var(--dark-greyish-cyan);
@@ -44,14 +56,19 @@
   font-weight: 600;
   margin-left: auto;
   cursor: pointer;
+  position: absolute;
+  right: var(--common-space);
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.clear:hover, .clear:active{
+.clear:hover,
+.clear:active {
   color: var(--primary-color);
-  text-decoration:underline ;
+  text-decoration: underline;
 }
 
-.remove-btn{
+.remove-btn {
   background-color: var(--primary-color);
   height: 100%;
   display: flex;
@@ -60,13 +77,15 @@
   width: 3rem;
   cursor: pointer;
 }
-.remove-btn:hover{
+.remove-btn:hover {
   background-color: #000;
 }
 
-.searches p{
+.remove-btn img{
+  transform: scale(.55);
+}
+
+.searches p {
   font-weight: 600;
   margin: 0 var(--common-less-space);
 }
-
-/* container of all listed jobs */
