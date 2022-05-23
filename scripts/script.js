@@ -126,8 +126,8 @@ const filterJSONArray = function () {
       return roleLevelLangToolArray.includes(roleLevelLangTool);
     });
   });
-  containerEl.innerHTML = '';
-  filteredJSONdata.forEach( (filteredObject) => publishInfo(filteredObject));
+  containerEl.innerHTML = "";
+  filteredJSONdata.forEach((filteredObject) => publishInfo(filteredObject));
 };
 
 // function to add element in search bar
@@ -197,6 +197,12 @@ searchBarEl.addEventListener("click", function (ele) {
 
     // hiding search-bar again
     showAndHideSearchBar();
+
+    // clearing all searchs to publish al again
+    containerEl.innerHTML = "";
+
+    // republishing all datas
+    iterateJSONArray(storeData);
     return;
   }
 
