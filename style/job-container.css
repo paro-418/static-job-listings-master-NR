@@ -18,21 +18,26 @@
 .search-bar {
   font-size: 2rem;
   width: 85%;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   background-color: #fff;
   border-radius: 0.5rem;
-  transform: translateY(50%);
-  padding: var(--common-space);
+  display: flex;
+  padding: var(--common-less-space);
   box-shadow: 0rem 1rem 2rem var(--dark-greyish-cyan-shadow);
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(50%);
+}
+
+.searches-container{
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+  align-items: center;
 }
 
 .searches {
   overflow: hidden;
-  height: 50%;
   display: flex;
   background-color: var(--span-bg-color);
   align-items: center;
@@ -45,21 +50,28 @@
 @media screen and (max-width: 400px){
   .search-bar{
     padding: var(--common-less-space);
+    font-size: 1.5rem;
+    row-gap: 0.7rem;
+  }
+
+  .searches{
+    margin-right: var(--common-less-space);
   }
 }
 
+.clear-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
 .clear {
-  background-color: transparent;
   border: none;
+  background-color: transparent;
   color: var(--dark-greyish-cyan);
   font-size: 1.5rem;
   font-weight: 600;
-  margin-left: auto;
   cursor: pointer;
-  position: absolute;
-  right: var(--common-space);
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .clear:hover,
