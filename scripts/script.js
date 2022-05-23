@@ -8,6 +8,11 @@ const clearBtnEl = document.querySelector(".clear");
 const containerEl = document.querySelector(".container");
 const searchesContainerEl = document.querySelector(".searches-container");
 
+// making globally available json data
+let storeData;
+// storing selected tags in set
+let selectedTagsArray = [];
+
 //  FUNCTIONS TO FETCH AND RENDER DATA
 const publishRightInfo = function (singleObject) {
   // selecting right info element
@@ -83,9 +88,10 @@ const iterateJSONArray = function (infoArray) {
 const getJsonData = async function () {
   //   const getData = await (await fetch("scripts/data.json")).json();
   const getData = await fetch("scripts/data.json");
-  const storeData = await getData.json();
+  storeData = await getData.json();
   console.log(storeData);
   iterateJSONArray(storeData);
+  filterJSONArray();
 };
 
 getJsonData();
@@ -105,8 +111,27 @@ const showAndHideSearchBar = function () {
 
 // function to render selected tags in SEARCH BAR
 
-// storing selected tags in set
-let selectedTagsArray = [];
+// function to filter jSON array on the basis of selected array to render selected data only
+const filterJSONArray = async function () {
+  // initializing filterJSONdata with initial JSON data
+  let filteredJSONdata = storeData;
+  selectedTagsArray.forEach(function (roleLevelLangTool) {
+    // filtering already filtered array
+    filteredJSONdata = filteredJSONdata.filter(function (objInJSON) {
+      // storing role, level, languages & tools of each object to filter
+      const roleLevelLangToolArray = [
+        objInJSON.role,
+        objInJSON.level,
+        ...objInJSON.languages,
+        ...objInJSON.tools,
+      ];
+
+      // returning only matching consitions
+      return roleLevelLangToolArray.includes(roleLevelLangTool);
+    });
+  });
+  console.log(filteredJSONdata);
+};
 
 // function to add element in search bar
 const addElementInSearchBar = function (toBeInserted) {
@@ -124,6 +149,7 @@ const addElementInSearchBar = function (toBeInserted) {
         ></span>`;
   searchesContainerEl.insertAdjacentHTML("beforeend", addSearchesHTML);
 
+  filterJSONArray();
   return;
 };
 
@@ -156,8 +182,8 @@ const delSearchFromSearchBar = function (targetedElement) {
     }
   }
   showAndHideSearchBar();
+  filterJSONArray();
 };
-
 
 // event listener on element of search bar
 searchBarEl.addEventListener("click", function (ele) {
