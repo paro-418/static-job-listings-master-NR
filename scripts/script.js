@@ -89,9 +89,7 @@ const getJsonData = async function () {
   //   const getData = await (await fetch("scripts/data.json")).json();
   const getData = await fetch("scripts/data.json");
   storeData = await getData.json();
-  console.log(storeData);
   iterateJSONArray(storeData);
-  filterJSONArray();
 };
 
 getJsonData();
@@ -112,7 +110,7 @@ const showAndHideSearchBar = function () {
 // function to render selected tags in SEARCH BAR
 
 // function to filter jSON array on the basis of selected array to render selected data only
-const filterJSONArray = async function () {
+const filterJSONArray = function () {
   // initializing filterJSONdata with initial JSON data
   let filteredJSONdata = storeData;
   selectedTagsArray.forEach(function (roleLevelLangTool) {
@@ -130,7 +128,8 @@ const filterJSONArray = async function () {
       return roleLevelLangToolArray.includes(roleLevelLangTool);
     });
   });
-  console.log(filteredJSONdata);
+  containerEl.innerHTML = '';
+  filteredJSONdata.forEach( (filteredObject) => publishInfo(filteredObject));
 };
 
 // function to add element in search bar
