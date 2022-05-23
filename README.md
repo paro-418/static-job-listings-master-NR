@@ -25,7 +25,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: https://www.frontendmentor.io/solutions/staticjoblistingsmaster-using-html-css-and-js-hZPlfxj-Fm
 - Live Site URL: https://paro-810.github.io/static-job-listings-master/
 
 
