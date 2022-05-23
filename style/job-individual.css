@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 1280px) {
   .jobs {
-    padding: var(--common-lesser-space);
+    padding: 0 var(--common-lesser-space);
   }
 }
 

@@ -84,6 +84,7 @@ const getJsonData = async function () {
   //   const getData = await (await fetch("scripts/data.json")).json();
   const getData = await fetch("scripts/data.json");
   const storeData = await getData.json();
+  console.log(storeData);
   iterateJSONArray(storeData);
 };
 
@@ -91,15 +92,8 @@ getJsonData();
 
 /////////////////////////////////////////////////////////////////////////
 
-// function to render selected tags
-
-// storing selected tags in set
-let selectedTagsArray = [];
-
-const addElementInSearchBar = function (toBeInserted) {
-
-  console.log(toBeInserted);
-  // removing hidden class from search-bar in atleast one tag is selected
+// FUNCTION TO SHOW AND HIDE SEARCH BAR
+const showAndHideSearchBar = function () {
   if (selectedTagsArray.length > 0) {
     searchBarEl.classList.remove("hidden");
     searchBarEl.classList.add("show");
@@ -107,9 +101,19 @@ const addElementInSearchBar = function (toBeInserted) {
     searchBarEl.classList.remove("show");
     searchBarEl.classList.add("hidden");
   }
+};
+
+// function to render selected tags in SEARCH BAR
+
+// storing selected tags in set
+let selectedTagsArray = [];
+
+// function to add element in search bar
+const addElementInSearchBar = function (toBeInserted) {
+  // removing hidden class from search-bar in atleast one tag is selected
+  showAndHideSearchBar();
 
   // adding element in search-bar element
-
   const addSearchesHTML = `<span class="searches"
           ><p>${toBeInserted}</p>
           <span class="remove-btn">
@@ -118,27 +122,72 @@ const addElementInSearchBar = function (toBeInserted) {
               alt="remove icon"
               class="remove-icon" /></span
         ></span>`;
-
-  searchesContainerEl.insertAdjacentHTML('beforeend',addSearchesHTML);      
+  searchesContainerEl.insertAdjacentHTML("beforeend", addSearchesHTML);
 
   return;
 };
 
+// function to store element in selectedTagsArray
 const storeSelectedTagsArray = function (receiveTag) {
-
   // guard condition -> if already selected then preventing it from getting selected again
   if (selectedTagsArray.find((item) => item === receiveTag)) return;
-  
+
   // storing clicked tag's
   selectedTagsArray.push(receiveTag);
-  console.log(selectedTagsArray);
 
   // changing search bar class
   addElementInSearchBar(receiveTag);
 };
 
-// EVENTLISTENER ON CONTAINER ELEMENT
+// EVENT LISTENER ON SEARCH-BAR
 
+// function to delete searches from search bar
+const delSearchFromSearchBar = function (targetedElement) {
+  // removing element from selectedTagsArray
+  const eleToRemove = targetedElement.closest(".searches").textContent;
+
+  for (const [index, ele] of selectedTagsArray.entries()) {
+    if (ele.trim() === eleToRemove.trim()) {
+      // deleting corresponding element of tapped remove btn from store array
+      selectedTagsArray.splice(index, 1);
+      // removing corresponding element of tapped remove btn from search bar
+      targetedElement.closest(".searches").remove();
+      break;
+    }
+  }
+  showAndHideSearchBar();
+};
+
+
+// event listener on element of search bar
+searchBarEl.addEventListener("click", function (ele) {
+  ele.preventDefault();
+  const targetedElement = ele.target;
+
+  //listener on - clear - button
+  if (targetedElement.classList.contains("clear")) {
+    // removing all searches from search bar
+    searchesContainerEl.innerHTML = "";
+
+    // removing all elements from selected tags array
+    selectedTagsArray = [];
+
+    // hiding search-bar again
+    showAndHideSearchBar();
+    return;
+  }
+
+  //listener on - remove - icon
+
+  if (
+    targetedElement.classList.contains("remove-btn") ||
+    targetedElement.classList.contains("remove-icon")
+  ) {
+    delSearchFromSearchBar(targetedElement);
+  }
+});
+
+// EVENTLISTENER ON CONTAINER ELEMENT
 containerEl.addEventListener("click", function (res) {
   res.preventDefault();
 
