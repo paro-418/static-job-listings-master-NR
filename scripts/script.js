@@ -3,8 +3,6 @@
 // SELECTING ALL DOM ELEMENTS
 
 const searchBarEl = document.querySelector("#search-bar");
-const removeIconEl = document.querySelectorAll(".remove-icon");
-const clearBtnEl = document.querySelector(".clear");
 const containerEl = document.querySelector(".container");
 const searchesContainerEl = document.querySelector(".searches-container");
 
